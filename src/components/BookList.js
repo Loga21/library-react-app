@@ -41,10 +41,10 @@ export default function BookList() {
       </div>
       <div className='header d-flex row align-items-center'>
         <div className='row1 text-white'>
-          <h1>
+          <p>
             <br /> portable magic"
             "A Book is uniquely
-          </h1>
+          </p>
         </div>
         <div className='row2 text-end'>
           <h2>Find Your Book</h2>
