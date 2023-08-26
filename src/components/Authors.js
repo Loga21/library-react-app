@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Authors_API } from '../API_URLs';
 import '../styles/authors.css';
 import { Link } from 'react-router-dom';
-import img from './images/pngwing.com.png';
+// import img from './images/pngwing.com.png';
 // import { VscSearch } from 'react-icons/vsc';
 
 export default function BookList() {
   const [authors, setAuthors] = useState([]);
-  const [authFilteredData, setAuthFilterdata] = useState([]);
+  const [authFilteredData, setAuthFilteredData] = useState([]);
   useEffect(() => {
     let fetchBooks = async () => {
       let response = await axios.get(Authors_API);
@@ -16,17 +16,17 @@ export default function BookList() {
     };
     fetchBooks();
   }, []);
-  var handleAuthfilter = (e) => {
+  var handleAuthFilter = (e) => {
     var searchWord = e.target.value;
     console.log(e.target.value);
     var newFilter = authors?.filter((value) => {
       return value.person?.toLowerCase().includes(searchWord?.toLowerCase()); //{ || value.original_name.toLowerCase().includes(searchWord.toLowerCase());}
     });
-    setAuthFilterdata(newFilter);
+    setAuthFilteredData(newFilter);
   };
-  var handleAuthKeys = () => {
-    window.addEventListener('keyup', handleAuthfilter);
-  };
+  // var handleAuthKeys = () => {
+  //   window.addEventListener('keyup', handleAuthFilter);
+  // };
   console.log(authors);
   return (
     <div className='authors'>
@@ -40,22 +40,22 @@ export default function BookList() {
           <div className='authors_author'>Authors</div>
         </div>
       </div>
-      <div className='auth-header'>
-        <div className='row1 col-lg-4 col-md-5'>
+      <div className='auth-header d-flex row align-items-center'>
+        <div className='row1 text-white'>
           <h3>
             "A good novel tells us the truth about its hero
             <br />
             but a bad novel tells us the truth about its author."
           </h3>
         </div>
-        <div className='row2 col-lg-8 col-md-7'>
-          <img src={img} />
+        <div className='row2 text-end'>
+          <img src='../assets/images/pngwing.com.png' alt='author' />
           <h2>Seek Your Author</h2>
           <div className='search'>
             <input
               type='text'
               placeholder='Enter Author Name..'
-              onKeyUp={handleAuthfilter}
+              onKeyUp={handleAuthFilter}
             />
           </div>
         </div>
@@ -69,10 +69,10 @@ export default function BookList() {
                   <div key={index} className='col-lg-3 col-md-6 col-sm-12'>
                     <div className='auth-i'>
                       <div>
-                        <img className='auth-img' src={item.imgUrl} />
+                        <img className='auth-img' src={item.imgUrl} alt='items'/>
                       </div>
                       <div className='h2_title authorNameLink'>
-                        <h2 className='authorNameLink'>
+                        <h6 className='authorNameLink'>
                           <Link
                             className='authorNameLink'
                             to={`/authdescription/${item.person}`}
@@ -80,7 +80,7 @@ export default function BookList() {
                             {' '}
                             {item.person}
                           </Link>
-                        </h2>
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export default function BookList() {
               <div key={index} className='col-lg-3 col-md-6 col-sm-12'>
                 <div className='auth-i'>
                   <div>
-                    <img className='auth-img' src={item.imgUrl} height={250} />
+                    <img className='auth-img' src={item.imgUrl} height={250} alt='itemImg'/>
                   </div>
                   <div className='h2_title authorNameLink'>
                     <b>

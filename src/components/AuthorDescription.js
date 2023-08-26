@@ -5,7 +5,7 @@ import { Authors_API } from '../API_URLs';
 import '../styles/auth-description.css';
 import { Link } from 'react-router-dom';
 
-export default function Author_description() {
+export default function AuthorDescription() {
   const { aName } = useParams();
 
   const [author, setAuthor] = useState({});
@@ -13,11 +13,11 @@ export default function Author_description() {
     var fetchAuthor = async () => {
       var response = await axios.get(Authors_API);
       var data = response.data;
-      var filtauthor = data.filter((item) => item.person == aName);
+      var filtauthor = data.filter((item) => item.person === aName);
       setAuthor(filtauthor[0]);
     };
     fetchAuthor();
-  }, []);
+  }, [aName]);
   console.log(author);
   return (
     <div>
@@ -38,7 +38,7 @@ export default function Author_description() {
       <div className='auth-description'>
         <div className='authContentDiv'>
           <div className='authImg'>
-            <img className='authPic' src={author.imgUrl} />
+            <img className='authPic' src={author.imgUrl} alt='authorImg'/>
           </div>
           <div className='auth-content'>
             <h5>
@@ -48,7 +48,7 @@ export default function Author_description() {
                   <a
                     target='_blank'
                     className='authAnch'
-                    href={author.articleUrl}
+                    href={author.articleUrl} rel="noreferrer"
                   >
                     {author.person}
                   </a>

@@ -1,29 +1,31 @@
-.book-description{
-    background-color: burlywood;
-    padding: 20px;
+.book-description {
+  background-color: burlywood;
+  padding: 20px;
 }
-.description-flex{
-    display: flex;
-    justify-content: start;
+.description-flex {
+  display: flex;
+  justify-content: start;
 }
-.description-info{
-    margin-left: 12%;
+.description-info {
+  margin-left: 6%;
 }
-.desc-img-div{
-    object-fit: cover;
+.desc-img-div {
+  width: 20%;
+  object-fit: cover;
 }
-.desc-img{
-    width: 100%;
+.desc-img {
+  width: 100%;
+  /* margin-left: 25%; */
 }
-.desc-desc{
-    margin-top: 30px;
+.desc-desc {
+  margin-top: 30px;
 }
-.bookDescLink{
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.3em;
+.bookDescLink {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.3em;
 }
-.bookDescLink:hover{
-    color: rgb(244, 157, 51);
-    transition: all 0.2s;
+.bookDescLink:hover {
+  color: rgb(244, 157, 51);
+  transition: all 0.2s;
 }

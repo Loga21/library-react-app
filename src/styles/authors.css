@@ -10,8 +10,8 @@ body {
   height: 340px;
   color: var(--secondary-color);
   box-shadow: 0 5px 10px rgb(171, 171, 170);
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   position: relative;
 }
 .auth-header::before {
@@ -22,13 +22,12 @@ body {
   width: 100%;
   height: 100%;
   background: url('https://collegewes.com/wp-content/uploads/2020/11/1920x1080-Affirmation-Page-Banner.jpg');
-  clip-path: circle(68% at left 280px);
+  clip-path: circle(72% at left 290px);
   z-index: -1;
 }
-.row2 {
+/* .row2 {
   position: absolute;
   top: 10px;
-  /* right: -24%; */
   text-align: center;
 }
 .row2 h2 {
@@ -49,7 +48,14 @@ body {
 .row2 > div > input {
   padding: 13px;
   border: 3px solid rgba(80, 199, 250, 0.6);
-}
+} */
+/* .row2{
+  position: absolute;
+  top: 10px;
+  margin-left: 20%;
+  text-align: center;
+} */
+
 .img-top {
   background-color: inherit;
   border: none;
@@ -102,6 +108,10 @@ body {
   font-size: 1.3em;
 }
 .authorNameLink {
+  text-decoration: none;
+  color: gray;
+}
+.authorNameLink:hover {
   text-decoration: none;
   color: gray;
 }

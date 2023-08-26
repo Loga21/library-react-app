@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Books_API } from '../API_URLs';
 import '../styles/book-list.css';
 import { Link } from 'react-router-dom';
-import img from './images/imgbin_charlottes-web-artists-book-reading-book-review-png.png';
+// import img from './images/imgbin_charlottes-web-artists-book-reading-book-review-png.png';
 // import { VscSearch } from 'react-icons/vsc';
 
 export default function BookList() {
   const [books, setBooks] = useState([]);
-  const [filteredData, setFilterdata] = useState([]);
+  const [filteredData, setFilterData] = useState([]);
   useEffect(() => {
     let fetchBooks = async () => {
       let response = await axios.get(Books_API);
@@ -16,17 +16,17 @@ export default function BookList() {
     };
     fetchBooks();
   }, []);
-  var handlefilter = (e) => {
+  var handleFilter = (e) => {
     var searchWord = e.target.value;
     var newFilter = books.filter((value) => {
       return value.title.toLowerCase().includes(searchWord.toLowerCase()); //{ || value.original_name.toLowerCase().includes(searchWord.toLowerCase());}
     });
-    setFilterdata(newFilter);
+    setFilterData(newFilter);
   };
-//   var handleKeys = () => {
-//     window.addEventListener('keyup', handlefilter);
-//   };
-//   window.removeEventListener('keyup', () => true);
+  //   var handleKeys = () => {
+  //     window.addEventListener('keyup', handleFilter);
+  //   };
+  //   window.removeEventListener('keyup', () => true);
   return (
     <div>
       <div>
@@ -39,23 +39,26 @@ export default function BookList() {
           </div>
         </div>
       </div>
-      <div className='header'>
-        <div className='row1 col-lg-5 col-md-5'>
+      <div className='header d-flex row align-items-center'>
+        <div className='row1 text-white'>
           <h1>
             "A Book is uniquely
             <br /> portable magic"
           </h1>
         </div>
-        <div className='row2 col-lg-7 col-mg-5'>
+        <div className='row2 text-end'>
           <h2>Find Your Book</h2>
           <div className='search'>
             <input
               type='text'
               placeholder='Enter your Book Name..'
-              onKeyUp={handlefilter}
+              onKeyUp={handleFilter}
             />
           </div>
-          <img src={img} />
+          <img
+            src='../assets/images/imgbin_charlottes-web-artists-book-reading-book-review-png.png'
+            alt='logo'
+          />
         </div>
       </div>
       <div className='book-list-bottom row'>
@@ -65,14 +68,18 @@ export default function BookList() {
               <div key={index} className='col-lg-3 col-md-6 col-sm-12'>
                 <div className='book-i'>
                   <div>
-                    <img className='book-img' src={item.image_url} />
+                    <img className='book-img' src={item.image_url} alt='item' />
                   </div>
                   <div className='h2_title'>
-                    <h2>
-                      <Link item={item} className='title' to={`/description/${item.id}`}>
+                    <h6>
+                      <Link
+                        item={item}
+                        className='title'
+                        to={`/description/${item.id}`}
+                      >
                         {item.title}
                       </Link>
-                    </h2>
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -82,11 +89,19 @@ export default function BookList() {
               <div key={index} className='col-lg-3 col-md-6 col-sm-12'>
                 <div className='book-i'>
                   <div>
-                    <img className='book-img' src={item.image_url} />
+                    <img
+                      className='book-img'
+                      src={item.image_url}
+                      alt='item2'
+                    />
                   </div>
                   <div className='h2_title'>
                     <b>
-                      <Link item={item} className='title' to={`/description/${item.id}`}>
+                      <Link
+                        item={item}
+                        className='title'
+                        to={`/description/${item.id}`}
+                      >
                         {item.title}
                       </Link>
                     </b>
